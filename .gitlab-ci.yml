@@ -1,0 +1,4 @@
+# Docker Deployment configuration: https://gitlab.tandashi.de/GameBase/ci-configuration/blob/master/docker-deploy.yml
+include:
+  - project: 'GameBase/ci-configuration'
+    file: 'docker-deploy.yml'
