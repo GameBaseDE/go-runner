@@ -16,4 +16,5 @@ RUN apk add --no-cache clang
 # Set Clang as default CC
 ENV set_clang /etc/profile.d/set-clang-cc.sh
 RUN echo "export CC=clang-9" | tee -a ${set_clang} && chmod a+x ${set_clang}
+RUN apk info
 RUN go env
