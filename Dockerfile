@@ -11,9 +11,7 @@ RUN go get -u golang.org/x/lint/golint
 COPY llvm.sh llvm.sh
 
 # Install Clang
-RUN apk add --no-cache lsb-release curl software-properties-common
-RUN bash llvm.sh
-RUN apk del lsb-release curl software-properties-common
+RUN apk add --no-cache clang
 
 # Set Clang as default CC
 ENV set_clang /etc/profile.d/set-clang-cc.sh
