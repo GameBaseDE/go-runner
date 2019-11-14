@@ -1,6 +1,6 @@
 # Base image: https://hub.docker.com/_/golang/
 FROM golang:alpine
-MAINTAINER Stefan Lukas <etaloof@gmail.com>
+LABEL maintainer="Stefan Lukas <etaloof@gmail.com>"
 
 # Install golint
 ENV GOPATH /go
