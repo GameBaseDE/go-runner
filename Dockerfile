@@ -13,5 +13,5 @@ COPY llvm.sh llvm.sh
 # Install build dependencies
 RUN apk add --no-cache clang clang-dev musl-dev bash build-base gcc abuild binutils binutils-doc gcc-doc
 ENV CC clang
-ENV CXX clang
+ENV CXX clang++
 RUN go env
