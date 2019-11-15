@@ -10,8 +10,8 @@ RUN go get -u golang.org/x/lint/golint
 
 COPY llvm.sh llvm.sh
 
-# Install Clang
-RUN apk add --no-cache clang
+# Install build dependencies
+RUN apk add --no-cache clang make
 ENV CC clang
 ENV CXX clang
 RUN go env
