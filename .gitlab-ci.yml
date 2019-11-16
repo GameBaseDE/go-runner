@@ -3,13 +3,8 @@ include:
   - project: 'GameBase/ci-configuration'
     file: 'docker-deploy.yml'
 
-stages:
-  - build
-  - push
-  - rebuild-projects
-
 # Trigger projects using this ci image
 trigger:
-  stage: rebuild-projects
+  stage: .post
   script:
     - curl -X POST -F "token=$CI_JOB_TOKEN" -F ref=master https://gitlab.tandashi.de/api/v4/projects/115/trigger/pipeline
