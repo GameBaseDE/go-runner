@@ -1,5 +1,5 @@
 # Base image: https://hub.docker.com/_/golang/
-FROM golang:alpine
+FROM golang:latest
 LABEL maintainer="Stefan Lukas <etaloof@gmail.com>"
 
 # Install golint
@@ -11,7 +11,14 @@ RUN go get -u golang.org/x/lint/golint
 COPY llvm.sh llvm.sh
 
 # Install build dependencies
-RUN apk add --no-cache clang clang-dev musl-dev bash build-base gcc abuild binutils binutils-doc gcc-doc lld alpine-sdk
+RUN apt-get update \
+    && apt-get install -y lsb-release curl software-properties-common \
+    && apt-get update
+RUN bash llvm.sh
+RUN apt-get clean \
+    && apt-get purge -y lsb-release curl software-properties-common \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENV CC clang
 ENV CXX clang++
 RUN go env
