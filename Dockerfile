@@ -19,6 +19,6 @@ RUN apt-get clean \
     && apt-get purge -y lsb-release curl software-properties-common \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-ENV CC clang
-ENV CXX clang++
+ENV CC clang-9
+ENV CXX clang-9++
 RUN go env
