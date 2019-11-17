@@ -5,7 +5,7 @@ LABEL maintainer="Stefan Lukas <etaloof@gmail.com>"
 # Install golint
 ENV GOPATH /go
 ENV PATH ${GOPATH}/bin:$PATH
-RUN apk --no-cache add git
+RUN apt-get update && apt-get install -y install git
 RUN go get -u golang.org/x/lint/golint
 
 COPY llvm.sh llvm.sh
